@@ -1,0 +1,66 @@
+// 函式
+// function name() { }
+
+// 宣告方式
+@mixin font($size) {
+    font-size: $size;
+    font-weight: 300;
+
+}
+
+
+@mixin margintop($val) {
+    margin-top: $val;
+    margin-bottom: $val * 2;
+    @include font(14px);
+}
+
+@mixin marginAuto() {
+    margin: 0 auto;
+}
+
+
+
+// 預設值
+@mixin rect($w: 100px, $h:100px, $bgc:#fff) {
+    width: $w;
+    height: $h;
+    background-color: $bgc;
+}
+
+
+@mixin rect_new($w, $h:$w) {
+    width: $w;
+    height: $h;
+}
+
+
+@mixin btn($w, $paddingh, $r:false, $bgc:null) {
+    width: $w;
+    padding: $paddingh 0;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+    background-color: $bgc;
+    @if $r== true {
+        border-radius: 5px;
+    }
+
+    &:hover {
+        color: #fff;
+        background-color: darken($bgc, 20);
+        // background-color: lighten($bgc , 10);
+    }
+}
+
+
+@mixin textbox($class , $w){
+    #{$class}{
+        text-align: center;
+        @include rect_new($w*5, $w);
+        border: 1px solid #333;
+        @content;     
+    } 
+ } 
+
+

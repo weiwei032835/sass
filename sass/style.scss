@@ -1,0 +1,185 @@
+// @import 引入其他資源
+@import 'header'; // sass 
+
+// @import url('font.css');
+@import 'font.css'; // 原生css
+@import 'mixin';
+
+
+
+
+// 變數 > 型態
+$fontSize : 28px; //數值
+$headerH : 120px;
+$h1: 48px;
+$h2: 40px;
+$h3: 36px;
+$h4: 24px;
+$h5: 18px;
+$bgc : #f7c4c4; //顏色
+$fontfamily : '微軟正黑'; // 字串
+$list : 10px 20px 10px; //list 
+$map : ('key' : 'value',
+    'h1' : 48px); // map
+$boolean : true; // 布林值
+$null : null; // null 把屬性刪掉
+
+
+.title {
+    font-size: map-get($map, h1);
+    background-color: $null;
+}
+
+.title::after {
+    content: '文字'; // 字串
+    display: block; // 數值
+}
+
+body {
+    background-color: $bgc;
+    font-size: $fontSize;
+    margin: $list;
+}
+
+h1 {
+    font-size: $h1;
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;
+}
+
+h4 {
+    font-size: $h4;
+}
+
+header {
+    height: $headerH;
+    width: 100%;
+}
+
+// 變數位置
+
+//==== 全域變數
+
+$width : 100px;
+
+.modal {
+    $width: 20px !default; // 區域變數
+    width: $width;
+}
+
+// ============ nesting =============
+body {
+    .container {
+        header {
+            height: 120px;
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        footer {
+            height: 300px;
+        }
+    }
+}
+
+// a {
+//     color : #f20;
+// }
+// a:hover {
+//    color :  #c61a00
+// }
+
+
+a {
+    color: #f20;
+
+    &:hover {
+        color: #c61a00;
+    }
+
+    &::after {
+        content: 'content';
+    }
+
+    &::before {
+        content: 'before'
+    }
+}
+
+
+//呼叫函式
+
+.box {
+    @include margintop(50px);
+    @include marginAuto()
+}
+
+.box01 {
+    @include margintop(10px);
+}
+
+
+
+
+
+
+.box_rect {
+    @include rect(200px, 300px, #f7c4c4);
+}
+
+.box_rects {
+    @include rect_new(100vw, 100vh)
+}
+
+
+// null 
+.btn-wide {
+    @include btn(150px, 10px, true, rgb(255, 174, 155));
+    margin-bottom: 10px;
+}
+
+
+.btn-default{
+    @include btn(120px, 10px, false, rgb(139, 255, 67));
+}
+
+
+
+@include textbox('.text' , 20px){
+   font-size: 20px;
+   color:rgb(139, 255, 67) 
+};
+
+// 字串轉型
+$fontclass : '.aa'; // class
+$attr : margin; // 屬性
+$path: aa; // 路徑
+
+#{$fontclass} {
+    #{$attr}: 40px;
+    background-image: url('./images/#{$path}.jpg');
+}
+
+//函式
+//function name(){}
+
+//宣告方式
+
+@mixin margintop {
+    margin-top: 200px;
+}
+
+//呼叫函數
+
+.box {
+    @include margintop(100px)
+}
