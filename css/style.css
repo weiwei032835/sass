@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(c:\Users\Tibame_T14\Desktop\tfd102-sass\sass\font.css);
+@import url("font.css");
 header {
   height: 120px;
   width: 100%;
@@ -15,9 +15,9 @@ header {
 }
 
 body {
-  background-color: #f7c4c4;
-  font-size: 28px;
-  margin: 10px 20px 10px;
+  background-color: #ffd1d1;
+  color: white;
+  font-size: 24px;
 }
 
 h1 {
@@ -79,7 +79,8 @@ a::before {
   margin-bottom: 100px;
   font-size: 14px;
   font-weight: 300;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .box01 {
@@ -122,12 +123,12 @@ a::before {
   text-align: center;
   cursor: pointer;
   border: 1px solid #000;
-  background-color: #8bff43;
+  background-color: #c3f6a5;
 }
 
 .btn-default:hover {
   color: #fff;
-  background-color: #54dc00;
+  background-color: #85ed48;
 }
 
 .text {
@@ -142,5 +143,383 @@ a::before {
 .aa {
   margin: 40px;
   background-image: url("./images/aa.jpg");
+}
+
+.aa {
+  width: 20;
+  height: 6px;
+  margin: 50px;
+  font: 2px;
+}
+
+.bb {
+  width: 20px;
+}
+
+.box-1 {
+  width: 1px;
+}
+
+.box-2 {
+  width: 2px;
+}
+
+.box-3 {
+  width: 3px;
+}
+
+.box-4 {
+  width: 4px;
+}
+
+.box-5 {
+  width: 5px;
+}
+
+.box-6 {
+  width: 6px;
+}
+
+.box-7 {
+  width: 7px;
+}
+
+.box-8 {
+  width: 8px;
+}
+
+.box-9 {
+  width: 9px;
+}
+
+.box-10 {
+  width: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.row .col-1 {
+  width: 4.16667%;
+}
+
+.row .col-2 {
+  width: 8.33333%;
+}
+
+.row .col-3 {
+  width: 12.5%;
+}
+
+.row .col-4 {
+  width: 16.66667%;
+}
+
+.row .col-5 {
+  width: 20.83333%;
+}
+
+.row .col-6 {
+  width: 25%;
+}
+
+.row .col-7 {
+  width: 29.16667%;
+}
+
+.row .col-8 {
+  width: 33.33333%;
+}
+
+.row .col-9 {
+  width: 37.5%;
+}
+
+.row .col-10 {
+  width: 41.66667%;
+}
+
+.row .col-11 {
+  width: 45.83333%;
+}
+
+.row .col-12 {
+  width: 50%;
+}
+
+.row .col-13 {
+  width: 54.16667%;
+}
+
+.row .col-14 {
+  width: 58.33333%;
+}
+
+.row .col-15 {
+  width: 62.5%;
+}
+
+.row .col-16 {
+  width: 66.66667%;
+}
+
+.row .col-17 {
+  width: 70.83333%;
+}
+
+.row .col-18 {
+  width: 75%;
+}
+
+.row .col-19 {
+  width: 79.16667%;
+}
+
+.row .col-20 {
+  width: 83.33333%;
+}
+
+.row .col-21 {
+  width: 87.5%;
+}
+
+.row .col-22 {
+  width: 91.66667%;
+}
+
+.row .col-23 {
+  width: 95.83333%;
+}
+
+.row .col-24 {
+  width: 100%;
+}
+
+.a {
+  background-image: url("../img/a.jpg");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 80px;
+}
+
+.b {
+  background-image: url("../img/b.jpg");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 80px;
+}
+
+.c {
+  background-image: url("../img/c.jpg");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 80px;
+}
+
+.d {
+  background-image: url("../img/d.jpg");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 80px;
+}
+
+.banner2 {
+  background-image: url("../img/banner2.png");
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 180px;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.v1 {
+  width: 100vw;
+  height: 400px;
+  display: block;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.wrapper .banner {
+  width: 1200px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper .banner .slider1 {
+  background-image: url("../img/slider1.png");
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper .banner .slider2 {
+  background-image: url("../img/slider2.png");
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper .banner .slider3 {
+  background-image: url("../img/slider3.png");
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 48px;
+  color: #333;
+}
+
+h2 {
+  font-size: 40px;
+  color: #333;
+}
+
+h3 {
+  font-size: 36px;
+  color: #333;
+}
+
+h4 {
+  font-size: 30px;
+  color: #333;
+}
+
+h5 {
+  font-size: 24px;
+  color: #333;
+}
+
+.text-primary {
+  color: #028df7;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-primary:hover {
+  background-color: #9ffae3;
+}
+
+.text-secondary {
+  color: #a5a5a5;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-secondary:hover {
+  background-color: #9ffae3;
+}
+
+.text-success {
+  color: #00dd12;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-success:hover {
+  background-color: #9ffae3;
+}
+
+.text-danger {
+  color: #a90000;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-danger:hover {
+  background-color: #9ffae3;
+}
+
+.text-warning {
+  color: #e9ff20;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-warning:hover {
+  background-color: #9ffae3;
+}
+
+.text-info {
+  color: #71afff;
+  background-color: #3ef5c7;
+  padding: 10px 20px;
+  transition: .2s all ease;
+  cursor: pointer;
+}
+
+.text-info:hover {
+  background-color: #9ffae3;
+}
+
+.blue, .card-background_blue {
+  background-color: #0008ff;
+}
+
+.yellow, .box-default, .box-warning, .card-background_yellow, .banner {
+  background-color: #f3ff0f;
+}
+
+.box-default {
+  width: 100px;
+  height: 100px;
+}
+
+.box-warning {
+  width: 300px;
+  height: 300px;
+}
+
+.borderRaduis5, .card-background_yellow, .card-background_blue {
+  border-radius: 5px;
+}
+
+.boxShadow, .card-background_blue {
+  box-shadow: 1px 1px 10px #333;
+}
+
+.card-background_blue {
+  border: 1px solid #ff2a2a;
+}
+
+.card-background_yellow {
+  width: 300px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+}
+
+.card-background_blue {
+  width: 400px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
 }
 /*# sourceMappingURL=style.css.map */

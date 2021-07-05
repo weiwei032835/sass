@@ -1,28 +1,15 @@
+//base
+@import 'var';
+
 // @import 引入其他資源
 @import 'header'; // sass 
 
 // @import url('font.css');
-@import 'font.css'; // 原生css
+@import url('font.css'); // 原生css
 @import 'mixin';
 
 
 
-
-// 變數 > 型態
-$fontSize : 28px; //數值
-$headerH : 120px;
-$h1: 48px;
-$h2: 40px;
-$h3: 36px;
-$h4: 24px;
-$h5: 18px;
-$bgc : #f7c4c4; //顏色
-$fontfamily : '微軟正黑'; // 字串
-$list : 10px 20px 10px; //list 
-$map : ('key' : 'value',
-    'h1' : 48px); // map
-$boolean : true; // 布林值
-$null : null; // null 把屬性刪掉
 
 
 .title {
@@ -37,8 +24,8 @@ $null : null; // null 把屬性刪掉
 
 body {
     background-color: $bgc;
+    color: $fontcolor;
     font-size: $fontSize;
-    margin: $list;
 }
 
 h1 {
@@ -148,16 +135,18 @@ a {
 }
 
 
-.btn-default{
-    @include btn(120px, 10px, false, rgb(139, 255, 67));
+.btn-default {
+    @include btn(120px, 10px, false, rgb(195, 246, 165));
 }
 
 
 
-@include textbox('.text' , 20px){
-   font-size: 20px;
-   color:rgb(139, 255, 67) 
-};
+@include textbox('.text', 20px) {
+    font-size: 20px;
+    color: rgb(139, 255, 67)
+}
+
+;
 
 // 字串轉型
 $fontclass : '.aa'; // class
@@ -169,17 +158,225 @@ $path: aa; // 路徑
     background-image: url('./images/#{$path}.jpg');
 }
 
-//函式
-//function name(){}
 
-//宣告方式
 
-@mixin margintop {
-    margin-top: 200px;
+// 運算  （注意單位） + 運算函式
+
+
+// floor(14.58px); // 14px 無條件捨去 
+// width: round(14.58px); // 15px 四捨五入
+// height: ceil(14.38px); // 15px 無條件進位
+
+
+
+$var : 10;
+
+
+.aa {
+    width: $var + 10;
+    height: 10 - 4 + px;
+    margin: 10px * 5;
+    font: ceil(24 / 18) + px;
 }
 
-//呼叫函數
 
-.box {
-    @include margintop(100px)
+// 判斷式
+$w : 20;
+
+.bb {
+    @if $w <=50 {
+        width: $w + px;
+    }
+
+    @else if $w <=70 {
+        width: ($w /2) + px;
+    }
+
+    @else {
+        width: $w * 2 + px;
+    }
 }
+
+
+// for 迴圈
+
+// grid
+
+@for $i from 1 through 10 {
+    .box-#{$i} {
+        width: $i * 1px;
+    }
+}
+
+
+// @include push(100);
+
+
+
+
+// @include pushall(100, top){
+//     display: block
+// };
+// @include pushall(200, bottom);
+
+// grid system
+
+
+
+.row {
+    display: flex;
+
+    // .col-1 {
+    //     width: (1/12) * 100%;
+    // }
+    // .col-2 {
+    //     width: (2/12) * 100%;
+    // }
+    @include grid(24);
+
+}
+
+
+// 呼叫 push
+
+// @include pushall(100 , top);
+// @include pushall(200 , left);
+// @include margin(100 , top){
+//      @include marginAuto();
+// };
+
+
+
+
+@include img(a b c d) {
+    width: 100px;
+    height: 80px;
+}
+
+
+@include img(banner2, png) {
+    width: 1200px;
+    height: 180px;
+    background-size: cover;
+    @include marginAuto();
+    position: relative;
+}
+
+
+$imgname : slider1 slider2 slider3;
+
+
+
+
+
+.v1 {
+     @include layout(full ,400px);
+     @include theme(false);
+     margin-bottom: 100px;
+    
+}
+
+.wrapper {
+    .banner {
+       @include layout(1200px, 500px);
+        @include img($imgname, png) {
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+}
+
+//數值型態
+//$color:#f20
+//$a:100px;
+//$m:10px auto;list
+
+$null :$null;
+
+
+@include title_module($title_h){
+    color: #333;
+};
+
+
+
+@include colormap($color-map , #3ef5c7);
+
+//  ========   @extend    ========
+
+
+
+.blue {
+    background-color: #0008ff; 
+ }
+ 
+ .yellow {
+     background-color: #f3ff0f;
+ }
+ 
+ 
+ @mixin yellow() {
+     background-color: #f3ff0f;
+ }
+ 
+ 
+ 
+ 
+ 
+ .box-default {
+    width: 100px;
+    height: 100px;
+ //    @include yellow(); 
+    @extend .yellow
+ }
+ 
+ .box-warning{
+    width: 300px; 
+    height: 300px;
+    @extend .yellow;
+ //    @include yellow(); 
+ }
+ .borderRaduis5 {
+     border-radius: 5px;
+ }
+ 
+ .boxShadow {
+     box-shadow: 1px 1px 10px #333;
+ }
+ 
+ %border_1px {
+    border:1px solid #ff2a2a; 
+ }
+ 
+ 
+ 
+ .card-background_yellow {
+     width: 300px ;
+     height: 200px;
+     @include marginAuto();
+     color: #000;
+     @extend .yellow;
+     @extend .borderRaduis5; 
+ }
+ 
+ .card-background_blue {
+     width: 400px ;
+     height: 300px;
+     @include marginAuto();
+     color: #000;
+     @extend .blue;
+     @extend .borderRaduis5;
+     @extend .boxShadow; 
+     @extend %border_1px;
+ }
+ 
+ 
+ .banner {
+     @extend .yellow;
+ }
+ 
+ 

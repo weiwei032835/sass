@@ -1,0 +1,43 @@
+
+
+
+// 變數 > 型態
+$fontSize : 24px; //數值
+$headerH : 120px;
+$h1: 48px;
+$h2: 40px;
+$h3: 36px;
+$h4: 24px;
+$h5: 18px;
+$bgc : #ffd1d1; //顏色
+$fontcolor : rgb(255, 255, 255);
+$fontfamily : '微軟正黑'; // 字串
+$list : 10px 20px 10px; //list 
+$map : ('key' : 'value',
+    'h1' : 48px); // map
+$boolean : true; // 布林值
+$null : null; // null 把屬性刪掉
+
+
+
+//map寫法
+$title_h :(
+    //key :value
+    'h1' : 48px,
+    'h2' : 40px,
+    'h3' : 36px,
+    'h4' : 30px,
+    'h5' : 24px,
+    );
+
+
+$color-map :(
+   'primary' : #028df7,
+   'secondary' : #a5a5a5, 
+   'success' : #00dd12, 
+   'danger' : #a90000, 
+   'warning' : #e9ff20,
+   'info'  : rgb(113, 175, 255) 
+);
+
+

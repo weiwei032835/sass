@@ -16,7 +16,8 @@
 }
 
 @mixin marginAuto() {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right :auto;
 }
 
 
@@ -63,4 +64,124 @@
     } 
  } 
 
+// grid
+ @mixin grid($col){
+    @for $i from 1 through $col {
+        .col-#{$i}{
+          width: ( $i / $col ) * 100% ;
+          @content;
+        } 
+    }
+} 
+
+
+// 運用
+@mixin push($num) {
+    @for $i from 1 through $num {
+        .push-left-#{$i} {
+            position: relative;
+            left: $i * 1px
+        }
+
+        .push-top-#{$i} {
+            position: relative;
+            top: $i * 1px
+        }
+
+        .push-bottom-#{$i} {
+            position: relative;
+            bottom: $i * 1px
+        }
+
+        .push-right-#{$i} {
+            position: relative;
+            right: $i * 1px
+        }
+    }
+}
+
+@mixin pushall($num, $dir) {
+    @for $i from 1 through $num {
+        .push-#{$dir}-#{$i} {
+            position: relative;
+            #{$dir}: $i * 1px;
+            @content;
+        }
+    }
+}
+
+
+@mixin margin($num, $dir){
+    @for $i from 1 through $num {
+        .margin-#{$dir}-#{$i} {
+           margin-#{$dir}: $i * 1px;
+         @content;
+        }
+    }
+}
+
+
+// $img : box a b c bg; // list
+@mixin img($img, $style:jpg) {
+    @each $a in $img {
+        .#{$a} {
+            background-image: url('../img/#{$a}.#{$style}');
+            background-repeat: no-repeat;
+            @content;
+        }
+    }
+}
+
+// @include layout(full滿版 , 高度 )  如果不是滿版的話 帶數值進去即可
+@mixin layout($theme , $h) {
+    @if $theme == full {
+        width : 100vw;
+        height : $h;
+        display: block;
+        position: relative;
+    }@else {
+       width: $theme;
+       height: $h;
+       @include marginAuto(); 
+    }
+}
+
+// 樣板的色塊 @include theme(true or false) true 會反轉顏色（字體顏色 背景色）
+@mixin theme($light-theme: true , $bgcolor:null){
+    @if $light-theme {
+        background-color: lighten($bgc , 100);
+        color: darken($fontcolor , 100);
+    }@else {
+        background-color: $bgcolor;
+    }    
+}
+
+//標題的h1-h5字體大小 @inclue title_module(map){屬性}
+@mixin title_module($title_h) {
+    @each $k, $v in $title_h{
+        #{$k}{
+            font-size: $v;
+            @content;
+        }
+    }  
+}
+
+
+//  color map   @include colormap(顏色map 對應);
+@mixin colormap($color-map , $bgc:rgb(255, 174, 224)) {
+
+    @each $k,$v in $color-map {
+        .text-#{$k} {
+            color: $v;
+            background-color: $bgc;
+            padding: 10px 20px;
+            transition: .2s all ease;
+            cursor: pointer;
+
+            &:hover {
+                background-color: lighten($bgc, 20);
+            }
+        }
+    }
+}
 
